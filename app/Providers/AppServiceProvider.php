@@ -2,13 +2,16 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
+use App\Policies\CommentPolicy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+
+    protected $policies = [
+        Comment::class => CommentPolicy::class,
+    ];
     public function register(): void
     {
         //
